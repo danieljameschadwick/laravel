@@ -6,4 +6,5 @@ Simple test project to find out how Laravel works!
 
 Currently working on:<br />
 - API
-
+- Eloquent (models)
+- Migrations
