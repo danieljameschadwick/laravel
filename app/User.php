@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Classes\DTO\UserDTO;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -48,4 +49,38 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @param string $username
+     * @param string $email
+     * @param string $password
+     *
+     * @return User
+     */
+    public static function create(
+        string $username,
+        string $email,
+        string $password
+    ): self
+    {
+        return new self([
+            'username' => $username,
+            'email' => $email,
+            'password' => $password
+        ]);
+    }
+
+    /**
+     * @param UserDTO $userDTO
+     *
+     * @return User
+     */
+    public static function createFromDTO(UserDTO $userDTO): self
+    {
+        return self::create(
+            $userDTO->getUsername(),
+            $userDTO->getEmail(),
+            $userDTO->getPassword()
+        );
+    }
 }

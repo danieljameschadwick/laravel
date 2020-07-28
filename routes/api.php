@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['json']], function () {
     Route::get('/user/{user}', 'Api\UserController@get');
+    Route::post('/user/create', 'Api\UserController@create');
 });
 
 
