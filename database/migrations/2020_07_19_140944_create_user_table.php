@@ -4,7 +4,7 @@ use App\Classes\Database\Blueprint;
 use App\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,6 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('email');
             $table->string('password');
+            $table
+                ->string('remember_token', 100)
+                ->nullable()
+            ;
+
             $table->timestamps();
         });
     }

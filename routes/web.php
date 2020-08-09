@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Controller@index');
 
-Route::get('/login', 'AuthenticationController@login');
-Route::get('/register', 'AuthenticationController@register');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

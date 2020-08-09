@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api;
 
 use App\Classes\DTO\UserDTO;
-use App\User;
+use App\Classes\Models\User;
 use Illuminate\Routing\Controller as BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

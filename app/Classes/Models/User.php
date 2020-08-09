@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Classes\Models;
 
 use App\Classes\DTO\UserDTO;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -24,12 +24,19 @@ class User extends Authenticatable
     protected $primaryKey = 'id';
 
     /**
+     * @var array
+     */
+    protected $attributes = [
+        'remember_token' => null,
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 'email', 'password'
     ];
 
     /**
@@ -38,7 +45,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'remember_token',
     ];
 
     /**
